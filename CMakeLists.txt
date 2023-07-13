@@ -17,6 +17,8 @@ set(PROJECT_SOURCES
         src/mainwindow.cpp
         src/mainwindow.hpp
         src/mainwindow.ui
+        src/gamepadinjector.hpp
+        src/gamepadinjector.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
