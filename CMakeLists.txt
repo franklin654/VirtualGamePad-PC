@@ -6,7 +6,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
@@ -42,6 +42,9 @@ else()
     endif()
 endif()
 
+set("cppwinrt_DIR" ${CMAKE_HOME_DIRECTORY}/vcpkg/packages/cppwinrt_x86-windows/share/cppwinrt)
+find_package(cppwinrt CONFIG REQUIRED)
+target_link_libraries(VGamepadPC PRIVATE Microsoft::CppWinRT)
 target_link_libraries(VGamepadPC PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(VGamepadPC PROPERTIES
